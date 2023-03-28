@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shopping Cart Example</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<h1>Shopping Cart Example</h1>
+	
+	<div class="product">
+		<img src="product1.jpg" alt="Product 1">
+		<h2>Product 1</h2>
+		<p>Price: $10</p>
+		<button class="add-to-cart">Add to Cart</button>
+	</div>
+	
+	<div class="product">
+		<img src="product2.jpg" alt="Product 2">
+		<h2>Product 2</h2>
+		<p>Price: $20</p>
+		<button class="add-to-cart">Add to Cart</button>
+	</div>
+	
+	<div class="cart">
+		<h2>Cart</h2>
+		<ul class="cart-items"></ul>
+		<p>Total: $<span class="cart-total">0</span></p>
+		<button class="checkout">Checkout</button>
+	</div>
+	
+	<script src="scrip.js"></script>
+</body>
+</html>
+<style>
+
+.product {
+	display: inline-block;
+	margin: 20px;
+	text-align: center;
+}
+
+.product img {
+	width: 200px;
+	height: 200px;
+}
+
+.cart {
+	float: right;
+	text-align: center;
+	border: 1px solid black;
+	padding: 10px;
+}
+
+.cart ul {
+	list-style: none;
+	padding: 0;
+}
+
+.cart li {
+	margin-bottom: 10px;
+}
+
+.checkout {
+	margin-top: 10px;
+}
+
+.hide {
+	display: none;
+}
+</style>
+
+<script>
+
+var cartItems = [];
+var cartTotal = 0;
+
+var products = document.querySelectorAll('.product');
+for (var i = 0; i < products.length; i++) {
+	var button = products[i].querySelector('.add-to-cart');
+	button.addEventListener('click', addToCart);
+}
+
+var checkoutButton = document.querySelector('.checkout');
+checkoutButton.addEventListener('click', checkout);
+
+function addToCart(event) {
+	var product = event.target.parentNode;
+	var title = product.querySelector('h2').innerText;
+	var price = product.querySelector('p').innerText;
+	price = Number(price.replace(/[^0-9.-]+/g,""));
+	
+	var item = {title: title, price: price};
+	cartItems.push(item);
+	cartTotal += price;
+	
+	updateCart();
+}
+
+function updateCart() {
+	var cart = document.querySelector('.cart');
+	var cartItemsList = cart.querySelector('.cart-items');
+	var cartTotalPrice = cart.querySelector('.cart-total');
+	
+	cartItemsList.innerHTML = '';
+	
+	for (var i = 0; i < cartItems.length; i++) {
+		var item = cartItems[i];
+		var li = document.createElement('li');
+		li.innerText = item.title + ': $' + item.price;
+		cartItemsList.appendChild(li);
+	}
+	
+	cartTotalPrice.innerText = cartTotal.toFixed(10);
+	
+	if (cartItems.length > 0) {
+		cart.classList.remove('hide');
+	} else {
+		cart.classList.add('hide');
+	}
+}
+
+function checkout() {
+	alert('Thank you for your purchase!');
+	
+	cartItems = [];
+	cartTotal = 0;
+	
+	updateCart();
+}
+</script>

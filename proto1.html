@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div class="cart">
+  <header>Selection <a href="#" onclick="sendToWhatsApp();">Order</a></header><hr>
+  <ol id="cart-items"></ol><br><br>
+  <p style="border-top: 1px solid #333; font-weight: bold">Total($): <span id="cart-total" style="float: right; padding-right: 10px;">0</span></p>
+</div>
+
+<script type="text/javascript">
+  function sendToWhatsApp() {
+    var message = "A user sent this selection from skillset.\n\n";
+    var cartItems = document.querySelectorAll("#cart-items li");
+    for (var i = 0; i < cartItems.length; i++) {
+      message += cartItems[i].getAttribute("data-whatsapp") + "\n";
+    }
+    var whatsappLink = "https://wa.me/+2349076006242?text=" + encodeURIComponent(message);
+    window.open(whatsappLink, "_blank");
+  }
+</script>
+In this example, each <li> element in the cart should have a data-whatsapp attribute with the text that should be sent to WhatsApp. For example:
+
+bash
+Copy code
+<li data-whatsapp="Product A - $10"></li>
+<li data-whatsapp="Product B - $20"></li>
+
+</body>
+</html>

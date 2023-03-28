@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form>
+  <input type="text" placeholder="Search...">
+  <button type="submit">Search</button>
+</form>
+
+Add an event listener to the form that will trigger a JavaScript function when the form is submitted. Here is an example:
+php
+Copy code
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<div style="padding-top: 100vh" title="example" content="lorem">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+<script>
+  document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent the default form submission
+    // Your search function goes here
+  });
+</script>
+<!-- Write a JavaScript function that will perform the search. You can use various methods to search for content on your website, such as looping through an array of data, using regular expressions, or using a third-party search engine. Here is an example of searching through an array of data:
+php
+Copy code -->
+
+
+<div id="search-results"></div>
+<script>
+  const data = [
+    {title: 'Example 1', content: 'Lorem ipsum dolor sit amet'},
+    {title: 'Example 2', content: 'Consectetur adipiscing elit'},
+    {title: 'Example 3', content: 'Sed do eiusmod tempor incididunt'},
+  ];
+
+  function search() {
+    const searchTerm = document.querySelector('input').value;
+    const results = data.filter(item => {
+      return item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+             item.content.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+    // Display the search results on the page
+    console.log(results);
+  }
+</script>
+<!-- Finally, modify the search function to display the search results on the page. You can do this by creating a new HTML element, such as a <ul> or <table>, and populating it with the search results. Here is an example:
+php
+Copy code -->
+<script>
+  function search() {
+    const searchTerm = document.querySelector('input').value;
+    const results = data.filter(item => {
+      return item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+             item.content.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+
+    const resultList = document.createElement('ul');
+    results.forEach(result => {
+      const li = document.createElement('li');
+      li.textContent = result.title;
+      resultList.appendChild(li);
+    });
+
+    const searchResults = document.querySelector('#search-results');
+    searchResults.innerHTML = '';
+    searchResults.appendChild(resultList);
+  }
+</script>
+</body>
+</html>
