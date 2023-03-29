@@ -37,8 +37,7 @@ nav{
 #logoo {
 	float: left;
 	width: 60px;
-	margin-left: 10x;
-	transform: scale(1.1);
+	margin-left: 10px;
 }
 @media(max-device-width: 500px){
 	#logoo{
@@ -254,17 +253,6 @@ nav a:hover{
 		width: 25%;
 	}
 }
-.benefits-content{
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	padding: 1vh 2vh 6vh 6vh;
-}
-.benefits{
-	background: #FBFBFF;
-	border-bottom: 2px dashed black
-}
 
 
 .story{
@@ -296,9 +284,9 @@ nav a:hover{
 }
 .story1-img img:last-child{
 		width: 70%;
-		top: 50%;
+		top: 30%;
 		border: 0px;
-		left: -30%;
+		left: -20%;
 		transform: rotateZ(35deg);
 	}
 .story2-img{
@@ -393,7 +381,7 @@ nav a:hover{
 
 .ben1{
 	display: inline-block;
-	padding: 30px;
+	padding: 1px;
 	margin: 10px;
 	width: 400px;
 }
@@ -402,8 +390,8 @@ nav a:hover{
 }
 .ben1 i{
 	font-size: 60px;
-	padding-left: 100px;
-	transition: .3s
+	padding-left: 130px;
+	transition: .3s;
 
 }
 .ben1 i:hover{
@@ -411,8 +399,20 @@ nav a:hover{
 }
 .ben1 p{
 	padding: 10px;
-	text-align: c
 }
+.benefits-content{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding: 1vh 5.5vh 6vh 5.5vh;
+}
+.benefits{
+	background: #FBFBFF;
+	border-bottom: 2px dashed black
+}
+
+
 
 .social-proof{
 	width: 100%;
@@ -606,7 +606,7 @@ nav a:hover{
 .price1{
 	width: 350px;
 	height: 450px;
-	box-shadow: 2px 2px 1px lightgrey;
+	box-shadow: 5px 5px 1px lightgrey;
 	padding: 10px;
 	margin: 10px;
 	border: 1px solid black;
@@ -708,7 +708,7 @@ nav a:hover{
 	}
 	.price1{
 		height: 600px;
-		width: 500px
+		width: 600px
 	}
 	.see{
 		font-size: 30px
