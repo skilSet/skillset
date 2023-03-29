@@ -259,7 +259,7 @@ nav a:hover{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	padding: 1vh 6vh 6vh 6vh;
+	padding: 1vh 2vh 6vh 6vh;
 }
 .benefits{
 	background: #FBFBFF;
