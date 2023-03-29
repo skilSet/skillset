@@ -552,7 +552,6 @@ nav a:hover{
       .accordion__question p{
          margin: 5px;
          padding: 0;
-         font-family: consolas;
          font-size: 20px;
       }
       .accordion__answer p{
